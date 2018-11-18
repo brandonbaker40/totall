@@ -1,0 +1,22 @@
+<p>
+  <strong>Timestamp:</strong>
+  <%= balance.updated_at %>
+</p>
+<p>
+  <strong>Balance:</strong>
+  <%= balance.balance %>
+</p>
+<p>
+  <strong>Estimate:</strong>
+  <%= balance.estimate %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= balance.note %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Balance', [balance.account, balance],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

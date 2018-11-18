@@ -1,0 +1,23 @@
+todo
+
+- [x] balance
+- [ ] remove balance field from account
+- [ ] dropdown of account categories
+- [ ] calc net worth
+- [ ] user login
+- [ ] database -> postgres
+- [ ] hosting
+- [ ] graphs
+- [ ] expenses?
+- [ ] Annual contributions
+- [ ] budget
+- [ ] daycare
+- [ ] debt / loans / mortgage
+- [ ] analytics?
+- [ ] goals
+- [ ] income graph
+- [ ] taxes
+- [ ] 401k
+- [ ] soft deletes vs destroy
+- [ ] export to excel / google sheets
+- [ ] mobile app

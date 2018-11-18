@@ -1,0 +1,17 @@
+<%= form_with(model: [ @account, @account.balances.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :balance %><br>
+    <%= form.text_field :balance %>
+  </p>
+  <p>
+    <%= form.label :estimate %> <br />
+    <%= form.check_box :estimate %> <br />
+  </p>
+  <p>
+    <%= form.label :note %><br>
+    <%= form.text_area :note %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

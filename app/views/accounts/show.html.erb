@@ -1,0 +1,26 @@
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @account.category %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @account.active %>
+</p>
+<p>
+  <strong>Balance:</strong>
+  <%= @account.balance %>
+</p>
+
+<h2>Balances</h2>
+<%= render @account.balances %>
+
+<h2>Add a balance</h2>
+<%= render 'balances/form' %>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>
