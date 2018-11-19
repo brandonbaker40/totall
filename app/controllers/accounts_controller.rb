@@ -18,7 +18,13 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
+    @category = Category.find(params[:account][:category])
+    #@account = Account.create(account_params)
+    @account = Account.create(
+      name: params[:account][:name],
+      category: @category,
+      active: params[:account][:active],
+      note: params[:account][:note])
 
     if @account.save
       redirect_to @account
@@ -46,6 +52,6 @@ class AccountsController < ApplicationController
 
   private
     def account_params
-      params.require(:account).permit(:name, :category, :active, :balance)
+      params.require(:account).permit(:name, :active, :note)
     end
 end

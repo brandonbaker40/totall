@@ -3,11 +3,7 @@
 one:
   name: MyString
   active: false
-  note: MyText
-  category: one
 
 two:
   name: MyString
   active: false
-  note: MyText
-  category: two

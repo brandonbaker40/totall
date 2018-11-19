@@ -16,6 +16,6 @@ class BalancesController < ApplicationController
 
   private
     def balance_params
-      params.require(:balance).permit(:balance, :estimate, :note)
+      params.require(:balance).permit(:value, :estimate, :note)
     end
 end
