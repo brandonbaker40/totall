@@ -4,19 +4,19 @@
 </p>
 <p>
   <strong>Category:</strong>
-  <%= @account.category %>
+  <%= @account.category.name %>
 </p>
 <p>
   <strong>Active:</strong>
   <%= @account.active %>
 </p>
 <p>
-  <strong>Balance:</strong>
-  <%= @account.balance %>
+  <strong>Note:</strong>
+  <%= @account.note %>
 </p>
 
 <h2>Balances</h2>
-<%= render @account.balances %>
+<%= render 'balance' %>
 
 <h2>Add a balance</h2>
 <%= render 'balances/form' %>

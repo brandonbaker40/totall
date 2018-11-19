@@ -1,11 +1,14 @@
 todo
 
 - [x] balance
-- [ ] remove balance field from account
-- [ ] dropdown of account categories
-- [ ] calc net worth
+- [x] remove balance field from account
+- [x] database -> postgres
+- [x] dropdown of account categories
+- [x] balance:balance -> balance:value
+- [x] seed data
+- [ ] mega update page
+- [ ] calc net worth - on homepage?
 - [ ] user login
-- [ ] database -> postgres
 - [ ] hosting
 - [ ] graphs
 - [ ] expenses?

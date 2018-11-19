@@ -1,5 +1,11 @@
 class Account < ApplicationRecord
+  belongs_to :category
   has_many :balances, dependent: :destroy
-  validates :name, presence: true,
+  validates :name, uniqueness: true, presence: true,
                     length: { minimum: 3 }
+  validates :category, presence: true
+
+  def self.active
+    where active: true
+  end
 end
