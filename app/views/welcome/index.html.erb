@@ -1,2 +1,4 @@
-<h1>Net Worth</h1>
-<%= link_to 'Accounts', controller: 'accounts' %>
+<h1>Finance</h1>
+<%= link_to 'Accounts', controller: 'accounts' %><br />
+<h3>Net Worth</h3>
+<p><%= number_to_currency(@networth) %></p>

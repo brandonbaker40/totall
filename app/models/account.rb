@@ -4,4 +4,8 @@ class Account < ApplicationRecord
   validates :name, uniqueness: true, presence: true,
                     length: { minimum: 3 }
   validates :category, presence: true
+
+  def self.active
+    where active: true
+  end
 end
