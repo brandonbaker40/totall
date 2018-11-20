@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :balances
   end
 
+  resources :update
+
   root 'welcome#index'
 end
