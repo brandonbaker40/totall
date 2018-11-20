@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'update/index'
   get 'welcome/index'
 
   resources :accounts do

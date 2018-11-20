@@ -1,0 +1,21 @@
+<h1>Update All Balances</h1>
+<p><%= @timestamp %></p>
+<table>
+<tr>
+  <th>Account</th>
+  <th>Balance</th>
+  <th>Estimate?</th>
+  <th>Note</th>
+</tr>
+<%= form_with model: @account, local: true do |form| %>
+<% @accounts.each do |account| %>
+<tr>
+  <td><%= account.name %></td>
+  <td><%= form.text_field :balance, :value => account.balances.last.value %></td>
+  <td><%= form.check_box :estimate %></td>
+  <td><%= form.text_area :note %></td>
+</tr>
+<% end %>
+</table>
+<%= form.submit %>
+<% end %>

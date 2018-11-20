@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    accounts = Account.all
+    accounts = Account.active
     @networth = 0.00
 
-    accounts.active.each do |account|
+    accounts.each do |account|
       @networth = @networth + account.balances.last.value
     end
   end
