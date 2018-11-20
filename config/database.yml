@@ -6,8 +6,8 @@ default: &default
 
 development:
   <<: *default
-  database: networth_development
+  database: totall_development
 
 test:
   <<: *default
-  database: networth_test
+  database: totall_test
