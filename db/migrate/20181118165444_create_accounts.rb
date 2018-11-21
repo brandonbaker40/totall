@@ -5,7 +5,7 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.boolean :active
       t.text :note
       t.references :category, foreign_key: true
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

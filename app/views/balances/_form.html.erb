@@ -1,4 +1,17 @@
 <%= form_with(model: [ @account, @account.balances.build ], local: true) do |form| %>
+  <% if @account.balances.build.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@account.errors.count, "error") %> prohibited
+        this account from being saved:
+      </h2>
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= form.label :value %><br>
     <%= form.text_field :value %>
