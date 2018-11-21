@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :balances
   end
 
+  resources :users
+  resources :categories
   resources :update
 
   root 'welcome#index'
