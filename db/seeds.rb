@@ -1,4 +1,5 @@
-user = User.create(name: 'Mike Berkman', email: 'mike@berkman.co')
+user = User.create(name: 'Drew Brees', email: 'drew@saints.com',
+  password: 'foobar', password_confirmation: 'foobar')
 
 category = Category.create(name: 'Debt', active: true)
 category = Category.create(name: 'Asset', active: true)
