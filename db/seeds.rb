@@ -1,3 +1,5 @@
+user = User.create(name: 'Mike Berkman', email: 'mike@berkman.co')
+
 category = Category.create(name: 'Debt', active: true)
 category = Category.create(name: 'Asset', active: true)
 category = Category.create(name: 'Cash and Savings', active: true)
