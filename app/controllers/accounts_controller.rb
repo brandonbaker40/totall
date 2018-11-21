@@ -1,8 +1,6 @@
 class AccountsController < ApplicationController
   http_basic_authenticate_with name: "mike", password: "secret", except: [:index, :show]
 
-
-
   def index
     @user = User.find_by(email: "drew@saints.com")
     @accounts = @user.accounts.all
