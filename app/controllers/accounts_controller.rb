@@ -1,8 +1,11 @@
 class AccountsController < ApplicationController
   http_basic_authenticate_with name: "mike", password: "secret", except: [:index, :show]
 
+
+
   def index
-    @accounts = Account.all
+    @user = User.find_by(email: "drew@saints.com")
+    @accounts = @user.accounts.all
   end
 
   def show
@@ -18,9 +21,9 @@ class AccountsController < ApplicationController
   end
 
   def create
+    @user = User.find_by(email: "drew@saints.com")
     @category = Category.find(params[:account][:category])
-    #@account = Account.create(account_params)
-    @account = Account.create(
+    @account = @user.accounts.create(
       name: params[:account][:name],
       category: @category,
       active: params[:account][:active],
@@ -34,7 +37,8 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account = Account.find(params[:id])
+    @user = User.find_by(email: "drew@saints.com")
+    @account = @user.accounts.find(params[:id])
 
     if @account.update(account_params)
       redirect_to @account
@@ -44,7 +48,8 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    @account = Account.find(params[:id])
+    @user = User.find_by(email: "drew@saints.com")
+    @account = @user.accounts.find(params[:id])
     @account.destroy
 
     redirect_to accounts_path

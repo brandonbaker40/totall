@@ -1,5 +1,5 @@
 <h1>Accounts</h1>
-
+<h3><%= @user.name %></h3>
 <table>
   <tr>
     <th>Name</th>
@@ -24,4 +24,4 @@
   <% end %>
 </table>
 
-<%= link_to 'New account', new_account_path %>
+<p><%= link_to 'New account', new_account_path %></p>
