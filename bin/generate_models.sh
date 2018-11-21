@@ -3,12 +3,9 @@ bin/rails destroy model Account
 bin/rails destroy model Balance
 
 bin/rails generate model Category name:string active:boolean
-bin/rails generate model Account name:string active:boolean note:text category:references
+bin/rails generate model Account name:string active:boolean note:text category:references user:references
 bin/rails generate model Balance value:decimal estimate:boolean note:text account:references
 bin/rails generate model User name:string email:string password_digest:string
-
-
-
 
 
 #class Account < ApplicationRecord
