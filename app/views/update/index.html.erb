@@ -11,9 +11,9 @@
 <% @accounts.each do |account| %>
 <tr>
   <td><%= account.name %></td>
-  <td><%= form.text_field :balance, :value => account.balances.last.value %></td>
-  <td><%= form.check_box :estimate %></td>
-  <td><%= form.text_area :note %></td>
+  <td><%= form.text_field account.name + "_balance", :value => account.balances.last.value %></td>
+  <td><%= form.check_box (account.name + "_estimate") %></td>
+  <td><%= form.text_area (account.name + "_note") %></td>
 </tr>
 <% end %>
 </table>
