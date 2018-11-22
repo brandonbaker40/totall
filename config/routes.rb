@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'update/index'
-  get 'welcome/index'
+  get  '/help',      to:   'static_pages#help'
+  get  '/about',     to:   'static_pages#about'
+  get  '/contact',   to:   'static_pages#contact'
+
+  get   '/signup',    to:   'users#new'
+  post  '/signup',    to:   'users#create'
+
+  get   'update',    to:   'update#index'
+  #get   'welcome',   to:   'welcome#index'
+  get   'login',     to:   'sessions#new'
+  post  'login',     to:   'sessions#create'
+  get   'logout',    to:   'sessions#destroy'
+
+
 
   resources :accounts do
     resources :balances
@@ -11,5 +22,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :update
 
-  root 'welcome#index'
+  #root 'welcome#index'
+  root  'static_pages#home'
 end
