@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    accounts = @user.accounts.active
+    @networth = 0.00
+
+    accounts.each do |account|
+      @networth = @networth + account.balances.last.value
+    end
   end
 
   def new

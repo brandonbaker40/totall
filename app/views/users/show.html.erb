@@ -9,3 +9,7 @@
     </section>
   </aside>
 </div>
+<%= link_to 'Accounts', controller: 'accounts' %><br />
+<%= link_to 'Update All Balances', controller: 'update' %><br />
+<h3>Net Worth</h3>
+<p><%= number_to_currency(@networth) %></p>

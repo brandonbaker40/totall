@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   post  '/signup',    to:   'users#create'
 
   get   'update',    to:   'update#index'
-  #get   'welcome',   to:   'welcome#index'
   get   'login',     to:   'sessions#new'
   post  'login',     to:   'sessions#create'
   get   'logout',    to:   'sessions#destroy'
@@ -22,6 +21,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :update
 
-  #root 'welcome#index'
   root  'static_pages#home'
 end
