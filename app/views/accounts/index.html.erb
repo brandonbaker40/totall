@@ -3,25 +3,20 @@
   <tr>
     <th>Name</th>
     <th>Category</th>
-    <th>Active</th>
-    <th>Note</th>
     <th>Balance<th>
-    <th colspan="3"></th>
   </tr>
 
-  <% @accounts.each do |account| %>
+  <% @accounts.order('active desc, name').each do |account| %>
     <tr>
-      <td><%= account.name %></td>
+      <td><%= link_to account.name, user_account_path(current_user_id, account) %></td>
       <td><%= account.category.name %></td>
-      <td><%= account.active %></td>
-      <td><%= account.note %></td>
-      <td><%= account.balances.order("created_at").last.value %></td>
-      <td><%= link_to 'Show', user_account_path(current_user_id, account) %></td>
-      <td><%= link_to 'Edit', edit_user_account_path(current_user_id, account) %></td>
-      <td><%= link_to 'Delete', user_account_path(current_user_id, account),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= account.active ? current_balance(account) : nil %></td>
     </tr>
   <% end %>
+    <tr>
+      <td><strong>Totall</strong></td>
+      <td></td>
+      <td><strong><%= number_to_currency(@totall) %></strong></td>
+    </tr>
 </table>
 <%= link_to 'New Account', new_user_account_path(current_user_id), class: "btn btn-lg btn-primary" %>

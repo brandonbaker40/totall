@@ -6,8 +6,8 @@
         <%= gravatar_for current_user %>
         <%= current_user.name %>
       </h1>
-      <h3>Net Worth</h3>
-      <p><%= number_to_currency(@networth) %></p>
     </section>
   </aside>
 </div>
+<h3>My Totall</h3>
+<p><%= link_to number_to_currency(@totall), user_accounts_path(current_user_id) %></p>

@@ -1,15 +1,13 @@
 <table>
   <tr>
-    <th>Date</th>
     <th>Balance</th>
-    <th>Estimate?</th>
+    <th>Updated</th>
     <th>Note</th>
   </tr>
-  <% @account.balances.each do |balance| %>
+  <% @account.balances.order("created_at desc").each do |balance| %>
     <tr>
-      <td><%= balance.updated_at %></td>
-      <td><%= balance.value %></td>
-      <td><%= balance.estimate %></td>
+      <td><%= balance.estimate? ? "~" + number_to_currency(balance.value) : number_to_currency(balance.value) %></td>
+      <td><%= balance.created_at.strftime("%m/%d/%Y %I:%m%P") %></td>
       <td><%= balance.note %></td>
     </tr>
   <% end %>

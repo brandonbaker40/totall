@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     #if current_user_id == params[:id]
     puts current_user_id
       accounts = current_user.accounts.active
-      @networth = 0.00
+      @totall = 0.00
 
       accounts.each do |account|
         balance = account.balances.order("created_at").last
 
         if (balance)
-          @networth = @networth + balance.value
+          @totall = @totall + balance.value
         end
       end
     #else
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)    # Not the final implementation!
+    @user = User.new(user_params)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Totall!"

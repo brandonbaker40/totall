@@ -1,10 +1,21 @@
 class AccountsController < ApplicationController
   def index
     @accounts = current_user.accounts.all
+
+    @totall = 0.00
+
+    @accounts.each do |account|
+      balance = account.balances.order("created_at").last
+
+      if (balance)
+        @totall = @totall + balance.value
+      end
+    end
   end
 
   def show
     @account = current_user.accounts.find(params[:id])
+    @balance = @account.balances.order("created_at").last
   end
 
   def new
