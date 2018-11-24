@@ -16,7 +16,7 @@
 </p>
 <p>
   <strong>Balance:</strong>
-  <%= link_to number_to_currency(@balance.value), user_account_balances_path(params[:user_id], params[:id]) %>
+  <%= link_to number_to_currency(@account.current_value), user_account_balances_path(params[:user_id], params[:id]) %>
 </p>
 
 <%= link_to 'Edit', edit_user_account_path(current_user_id, params[:id]), class: "btn btn-lg btn-primary" %>

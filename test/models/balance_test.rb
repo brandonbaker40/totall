@@ -27,11 +27,6 @@ class BalanceTest < ActiveSupport::TestCase
     assert_not @balance.valid?
   end
 
-  test "value should not be negative" do
-    @balance.value = -0.1
-    assert_not @balance.valid?
-  end
-
   test "value should not be an invalid currency" do
     invalid_values = [10.111, '$10.1111', 100.111, 1000.111]
     invalid_values.each do |invalid_value|

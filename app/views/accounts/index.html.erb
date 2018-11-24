@@ -10,7 +10,7 @@
     <tr>
       <td><%= link_to account.name, user_account_path(current_user_id, account) %></td>
       <td><%= account.category.name %></td>
-      <td><%= account.active ? current_balance(account) : nil %></td>
+      <td><%= account.active? ? number_to_currency(account.current_value) : nil %></td>
     </tr>
   <% end %>
     <tr>

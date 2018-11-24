@@ -9,7 +9,11 @@ class Account < ApplicationRecord
   validates :category_id, presence: true
   validates :user_id, presence: true
 
-  def self.active
+  def self.active?
     where active: true
+  end
+
+  def current_value
+    balances.order("created_at").last.value
   end
 end
