@@ -1,12 +1,23 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find(params[:id])
-    accounts = @user.accounts.active
-    @networth = 0.00
+  def index
+  end
 
-    accounts.each do |account|
-      @networth = @networth + account.balances.last.value
-    end
+  def show
+    #if current_user_id == params[:id]
+    puts current_user_id
+      accounts = current_user.accounts.active
+      @networth = 0.00
+
+      accounts.each do |account|
+        balance = account.balances.order("created_at").last
+
+        if (balance)
+          @networth = @networth + balance.value
+        end
+      end
+    #else
+    #  redirect_to logout_path
+    #end
   end
 
   def new

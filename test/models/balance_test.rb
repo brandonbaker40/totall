@@ -41,7 +41,7 @@ class BalanceTest < ActiveSupport::TestCase
   end
 
   test "value should be an valid currency" do
-    valid_values = [10.11, 100.11, 100.1, 1000.1]
+    valid_values = [10.11, 100.11, 100.1, 1000.1, 0]
     valid_values.each do |valid_value|
       @balance.value = valid_value
       assert @balance.valid?, "#{valid_value.inspect} should be valid"

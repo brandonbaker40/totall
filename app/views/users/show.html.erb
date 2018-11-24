@@ -1,15 +1,13 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, current_user.name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= gravatar_for current_user %>
+        <%= current_user.name %>
       </h1>
+      <h3>Net Worth</h3>
+      <p><%= number_to_currency(@networth) %></p>
     </section>
   </aside>
 </div>
-<%= link_to 'Accounts', controller: 'accounts' %><br />
-<%= link_to 'Update All Balances', controller: 'update' %><br />
-<h3>Net Worth</h3>
-<p><%= number_to_currency(@networth) %></p>
