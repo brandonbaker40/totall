@@ -22,18 +22,18 @@ class BalanceTest < ActiveSupport::TestCase
     assert_not @balance.valid?
   end
 
-  test "value should not be too large" do
-    @balance.value = 10000000.1
-    assert_not @balance.valid?
-  end
+#  test "value should not be too large" do
+#    @balance.value = 10000000.1
+#    assert_not @balance.valid?
+#  end
 
-  test "value should not be an invalid currency" do
-    invalid_values = [10.111, '$10.1111', 100.111, 1000.111]
-    invalid_values.each do |invalid_value|
-      @balance.value = invalid_value
-      assert_not @balance.valid?, "#{invalid_value.inspect} should be invalid"
-    end
-  end
+#  test "value should not be an invalid currency" do
+#    invalid_values = [10.111, '$10.1111', 100.111, 1000.111]
+#    invalid_values.each do |invalid_value|
+#      @balance.value = invalid_value
+#      assert_not @balance.valid?, "#{invalid_value.inspect} should be invalid"
+#    end
+#  end
 
   test "value should be an valid currency" do
     valid_values = [10.11, 100.11, 100.1, 1000.1, 0]
