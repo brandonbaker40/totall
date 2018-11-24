@@ -13,15 +13,19 @@
     </div>
   <% end %>
   <p>
-    <%= form.label :value %><br>
+    <%= form.label :value %><br />
     <%= form.text_field :value %>
   </p>
   <p>
     <%= form.label :estimate %> <br />
-    <%= form.check_box :estimate %> <br />
+    <%= form.check_box :estimate %>
   </p>
   <p>
-    <%= form.label :note %><br>
+    <%= form.label :timestamp %><br />
+    <%= form.time_select :timestamp %>
+  </p>
+  <p>
+    <%= form.label :note %><br />
     <%= form.text_area :note %>
   </p>
   <p>

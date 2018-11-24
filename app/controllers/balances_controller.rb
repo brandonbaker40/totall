@@ -4,7 +4,8 @@ class BalancesController < ApplicationController
   end
 
   def show
-    #@account = current_user.accounts.find(params[:id])
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
   end
 
   def new
@@ -13,7 +14,8 @@ class BalancesController < ApplicationController
   end
 
   def edit
-    #@account = current_user.accounts.find(params[:id])
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
   end
 
   def create
@@ -23,13 +25,14 @@ class BalancesController < ApplicationController
   end
 
   def update
-    #@account = current_user.accounts.find(params[:id])
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
 
-    #if @account.update(account_params)
-    #  redirect_to user_accounts_path
-    #else
-    #  render 'edit'
-    #end
+    if @balance.update(balance_params)
+      redirect_to user_account_balances_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
