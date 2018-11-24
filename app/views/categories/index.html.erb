@@ -1,1 +1,16 @@
+<% provide(:title, 'Categories') %>
 <h1>Categories</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Active</th>
+  </tr>
+
+  <% @categories.order('name').each do |category| %>
+    <tr>
+      <td><%= link_to category.name, category_path(category.id) %></td>
+      <td><%= category.active %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New Category', new_category_path, class: "btn btn-lg btn-primary" %>

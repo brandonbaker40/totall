@@ -1,0 +1,14 @@
+<% provide(:title, @category.name) %>
+<h1>Category</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+<p>
+  <strong>Active:</strong>
+  <%= @category.active %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(params[:id]), class: "btn btn-lg btn-primary" %>
+<%= link_to 'Delete', '#', class: "btn btn-lg btn-primary" %>
