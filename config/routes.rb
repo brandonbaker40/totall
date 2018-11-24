@@ -6,22 +6,19 @@ Rails.application.routes.draw do
   get   '/signup',    to:   'users#new'
   post  '/signup',    to:   'users#create'
 
-  get   'update',    to:   'update#index'
-  #get   'welcome',   to:   'welcome#index'
-  get   'login',     to:   'sessions#new'
-  post  'login',     to:   'sessions#create'
-  get   'logout',    to:   'sessions#destroy'
+  get   '/update',    to:   'update#index'
+  get   '/login',     to:   'sessions#new'
+  post  '/login',     to:   'sessions#create'
+  get   '/logout',    to:   'sessions#destroy'
 
-
-
-  resources :accounts do
-    resources :balances
+  resources :users do
+    resources :accounts do
+      resources :balances
+    end
   end
 
-  resources :users
   resources :categories
   resources :update
 
-  #root 'welcome#index'
   root  'static_pages#home'
 end

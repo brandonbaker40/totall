@@ -14,12 +14,12 @@
   <strong>Note:</strong>
   <%= @account.note %>
 </p>
+<p>
+  <strong>Balance:</strong>
+  <%= link_to number_to_currency(@balance.value), user_account_balances_path(params[:user_id], params[:id]) %>
+</p>
 
-<h2>Balances</h2>
-<%= render 'balance' %>
-
-<h2>Add a balance</h2>
-<%= render 'balances/form' %>
-
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Edit', edit_user_account_path(current_user_id, params[:id]), class: "btn btn-lg btn-primary" %>
+<%= link_to 'Delete', user_account_path(current_user_id, params[:id]), class: "btn btn-lg btn-primary",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>

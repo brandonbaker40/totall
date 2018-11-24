@@ -1,27 +1,31 @@
-<%= form_with(model: [ @account, @account.balances.build ], local: true) do |form| %>
-  <% if @account.balances.build.errors.any? %>
+<%= form_with(model: [ current_user, @account, @balance ], local: true) do |form| %>
+  <% if @balance.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
+        <%= pluralize(@balance.errors.count, "error") %> prohibited
         this account from being saved:
       </h2>
       <ul>
-        <% @account.errors.full_messages.each do |msg| %>
+        <% @balance.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
   <p>
-    <%= form.label :value %><br>
+    <%= form.label :value %><br />
     <%= form.text_field :value %>
   </p>
   <p>
     <%= form.label :estimate %> <br />
-    <%= form.check_box :estimate %> <br />
+    <%= form.check_box :estimate %>
   </p>
   <p>
-    <%= form.label :note %><br>
+    <%= form.label :timestamp %><br />
+    <%= form.time_select :timestamp %>
+  </p>
+  <p>
+    <%= form.label :note %><br />
     <%= form.text_area :note %>
   </p>
   <p>

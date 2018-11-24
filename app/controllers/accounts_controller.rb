@@ -1,56 +1,62 @@
 class AccountsController < ApplicationController
-  http_basic_authenticate_with name: "mike", password: "secret", except: [:index, :show]
-
   def index
-    @user = User.find_by(email: "drew@saints.com")
-    @accounts = @user.accounts.all
+    @accounts = current_user.accounts.all
+
+    @totall = 0.00
+
+    @accounts.each do |account|
+      balance = account.balances.order("created_at").last
+
+      if (balance)
+        @totall = @totall + balance.value
+      end
+    end
   end
 
   def show
-    @account = Account.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
+    @balance = @account.balances.order("created_at").last
   end
 
   def new
-    @account = Account.new
+    @account = current_user.accounts.new
   end
 
   def edit
-    @account = Account.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
   end
 
   def create
-    @user = User.find_by(email: "drew@saints.com")
     @category = Category.find(params[:account][:category])
-    @account = @user.accounts.create(
+    @account = current_user.accounts.create(
       name: params[:account][:name],
       category: @category,
       active: params[:account][:active],
       note: params[:account][:note])
 
     if @account.save
-      redirect_to @account
+      @account.balances.create(value: 0, estimate: false, note: "New account")
+      redirect_to user_accounts_path
     else
       render 'new'
     end
   end
 
   def update
-    @user = User.find_by(email: "drew@saints.com")
-    @account = @user.accounts.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
 
     if @account.update(account_params)
-      redirect_to @account
+      redirect_to user_accounts_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    @user = User.find_by(email: "drew@saints.com")
-    @account = @user.accounts.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
     @account.destroy
 
-    redirect_to accounts_path
+    redirect_to user_accounts_path
   end
 
   private

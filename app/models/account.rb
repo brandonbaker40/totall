@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :balances, dependent: :destroy
-  validates :name, uniqueness: true, presence: true,
+  validates :name, uniqueness: { scope: :user }, presence: true,
                     length: { minimum: 3, maximum: 25 }
   validates :active, inclusion: { in: [ true, false ] }
   validates :note, length: {maximum: 200}

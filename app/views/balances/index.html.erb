@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Balance</th>
+    <th>Updated</th>
+    <th>Note</th>
+  </tr>
+  <% @account.balances.order("created_at desc").each do |balance| %>
+    <tr>
+      <td><%= link_to (balance.estimate? ? "~" + number_to_currency(balance.value) : number_to_currency(balance.value)), user_account_balance_path(current_user_id, @account, balance) %></td>
+      <td><%= balance.created_at.strftime("%m/%d/%Y %I:%m%P") %></td>
+      <td><%= balance.note %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New Balance', new_user_account_balance_path(current_user_id, @account.id), class: "btn btn-lg btn-primary" %>
+
+<br />
+<%= area_chart @account.balances.group_by_day("created_at").maximum(:value),
+xtitle: "Time", ytitle: "Balance", curve: true, points: true, prefix: "$", thousands: "," %>

@@ -1,17 +1,45 @@
 class BalancesController < ApplicationController
-  http_basic_authenticate_with name: "mike", password: "secret", only: :destroy
+  def index
+    @account = current_user.accounts.find(params[:account_id])
+  end
+
+  def show
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
+  end
+
+  def new
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.new
+  end
+
+  def edit
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
+  end
 
   def create
-    @account = Account.find(params[:account_id])
+    @account = current_user.accounts.find(params[:account_id])
     @balance = @account.balances.create(balance_params)
-    redirect_to account_path(@account)
+    redirect_to user_account_balances_path
+  end
+
+  def update
+    @account = current_user.accounts.find(params[:account_id])
+    @balance = @account.balances.find(params[:id])
+
+    if @balance.update(balance_params)
+      redirect_to user_account_balances_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    @account = Account.find(params[:account_id])
+    @account = current_user.find(params[:account_id])
     @balance = @account.balances.find(params[:id])
     @balance.destroy
-    redirect_to account_path(@account)
+    redirect_to user_account_balance_path
   end
 
   private
