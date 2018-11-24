@@ -7,7 +7,12 @@ class Balance < ApplicationRecord
   validates :note, length: {maximum: 200}
   validates :account_id, presence: true
 
-  def self.estimate
+  def self.estimate?
     where estimate: true
   end
+
+#  def current?
+#    account = :account
+#    account.current_value
+#  end
 end
