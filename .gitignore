@@ -32,3 +32,9 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+.env
+*.key
+*.crt
+*.DS_Store
+examples/*

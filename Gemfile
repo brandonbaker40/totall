@@ -12,13 +12,23 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'bootsnap', '>= 1.1.0', require: false
+
+gem 'bcrypt'
+gem 'jwt'
+
+gem 'swagger-docs'
+
+gem 'ynab'
+gem 'omniauth-oauth2'
+gem 'omniauth'
+gem 'omniauth-ynab'
+
 gem 'chartkick'
 gem 'groupdate'
 gem "highcharts-rails"
 
-gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
