@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  acts_as_paranoid
+
   has_many :accounts
   validates :name, uniqueness: true, presence: true,
                     length: { minimum: 3, maximum: 25 }

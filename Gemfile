@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'chartkick'
 gem 'groupdate'
 gem "highcharts-rails"
+gem "paranoia", "~> 2.2"
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

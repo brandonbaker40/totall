@@ -1,4 +1,6 @@
 class Balance < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :account
   validates :value, presence: true
 #            , format: { with: /\A\d+(?:\.\d{0,2})?\z/ }
