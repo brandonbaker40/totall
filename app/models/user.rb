@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   acts_as_paranoid
-  
+
   has_many :accounts
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }

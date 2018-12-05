@@ -18,8 +18,4 @@ class Account < ApplicationRecord
   def current_value
     balances.order("created_at").last.value
   end
-
-  # def user
-  #   User.unscoped { super }
-  # end
 end

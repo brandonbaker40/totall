@@ -35,6 +35,7 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
