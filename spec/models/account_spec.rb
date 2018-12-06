@@ -5,9 +5,13 @@ RSpec.describe Account, type: :model do
 
   describe "account validations" do
     it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_length_of(:name), in: 3..25 }
     it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to allow_value(true, false).for(:active) }
     it { is_expected.to allow_value(nil).for(:note) }
+    it { is_expected.to validate_length_of(:note).is_at_most(200) }
+
+    # it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id) }
   end
 
   describe "account associations" do
