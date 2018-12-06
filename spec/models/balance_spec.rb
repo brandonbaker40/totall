@@ -5,6 +5,7 @@ RSpec.describe Balance, type: :model do
 
   describe "balance validations" do
     it { is_expected.to validate_presence_of(:value) }
+    it { is_expected.to validate_presence_of(:account_id) }
     it { is_expected.to allow_value(true, false).for(:estimate) }
     it { is_expected.to allow_value(nil).for(:note) }
   end
